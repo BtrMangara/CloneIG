@@ -19,21 +19,25 @@ class userController{
 
     static async register(req,res){
         try {
-            const {username,email,password} = req.body;
-            const image = 'https://via.placeholder.com/100';
+            const {username,email,password,image} = req.body;
             const salt = bcrypt.genSaltSync(10);
             const hashPassword = bcrypt.hashSync(password,salt);
-            console.log(hashPassword);
+            const emailExist = await Users.findAll({where:{email}});
+            if(emailExist[0]){
+                res.status(404).json({message:'Email Sudah Terdaftar'})
+            }else{
+                const result = await Users.create({
+                    username,email,password:hashPassword,image
+                },{returning:true})
+    
+                res.status(200).json({
+                    message: 'Anda Berhasil Mendaftar',
+                    result
+                });
+    
+            }
 
-            const result = await Users.create({
-                username,email,password:hashPassword,image
-            },{returning:true})
-
-            res.status(200).json({
-                message: 'Anda Berhasil Mendaftar',
-                result
-            });
-
+            
         } catch (error) {
             res.status(404).json(error.message)
         }
@@ -74,7 +78,7 @@ class userController{
     static async updateUser(req,res){
         try {
             const id = req.params.id;
-            const  {username,email,password,image} = req.body;
+            const  {username,email,password} = req.body;
             const salt = bcrypt.genSaltSync(10);
             const hashPassword = bcrypt.hashSync(password,salt);
             const result = await Users.update({

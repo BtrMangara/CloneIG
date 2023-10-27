@@ -15,11 +15,29 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Users.init({
-    username: DataTypes.STRING,
-    email: DataTypes.STRING,
+    username: {
+      type: DataTypes.STRING,
+      validate:{
+        notEmpty:{
+          msg : 'Username harus diisi'
+        }
+      }
+    },
+    email: {
+      type:DataTypes.STRING,
+      validate:{
+        notEmpty:{msg:'Email Harus Diisi'},
+        isEmail:{msg:'Email tidak valid'}
+      }
+    },
     password: DataTypes.STRING,
     image: DataTypes.STRING
   }, {
+    hooks:{
+      beforeCreate:function (user,options){
+        user.image = user.image || "https://via.placeholder.com/150x150";
+      }
+    },
     sequelize,
     modelName: 'Users',
   });
