@@ -1,5 +1,6 @@
-
-const {Posts,Users} = require('../models')
+const jwt = require('jsonwebtoken');
+const {Posts,Users} = require('../models');
+require('dotenv')
 
 class postController{
 
@@ -14,10 +15,34 @@ class postController{
             res.status(404).json(error.message);
         }
     }
+    
+
+    static async getPost(req,res){
+        try {
+            const result = await Posts.findAll({where:{status:true}});
+            res.status(200).json(result);
+        } catch (error) {
+            res.status(404).json(error.message);
+        }
+    }
+
+    static async getPostUser(req,res){
+        try {
+            const token = req.headers.authorization;
+            const UserId = jwt.verify(token,process.env.SECRET_KEY).id;
+            console.log(UserId)
+            const result = await Posts.findAll({where:{UserId}})
+            res.status(200).json(result);
+        } catch (error) {
+            res.status(404).json(error.message);
+        }
+    }
 
     static async addPost(req, res){
         try {
-            const {caption,image,status,UserId} = req.body;
+            const token = req.headers.authorization;
+            const {caption,image,status} = req.body;
+            const UserId = jwt.verify(token,process.env.SECRET_KEY).id;
             const result = await Posts.create({
                 caption,
                 image,

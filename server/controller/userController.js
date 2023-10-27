@@ -108,6 +108,8 @@ class userController{
                 where : {email}
             });
 
+            console.log(password,user.password)
+
             if(user){
                 if(bcrypt.compareSync(password, user.password)){
                     const token = Jwt.sign({username:user.username,id:user.id,createdAt:user.createdAt},
