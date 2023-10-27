@@ -108,7 +108,7 @@ class userController{
                 where : {email}
             });
 
-            console.log(password,user.password)
+            // console.log(password,user.password)
 
             if(user){
                 if(bcrypt.compareSync(password, user.password)){

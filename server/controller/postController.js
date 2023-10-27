@@ -30,7 +30,7 @@ class postController{
         try {
             const token = req.headers.authorization;
             const UserId = jwt.verify(token,process.env.SECRET_KEY).id;
-            console.log(UserId)
+            // console.log(UserId)
             const result = await Posts.findAll({where:{UserId}})
             res.status(200).json(result);
         } catch (error) {
