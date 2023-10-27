@@ -126,6 +126,30 @@ class userController{
         }
     }
 
+    static async token(req,res,next){
+        try {
+            const token = req.headers.authorization;
+            if(token){
+                if(Jwt.verify(await token,process.env.SECRET_KEY)){
+                    next();
+                }
+                else{
+                    res.status(401).json({
+                        message:`Maaf Token Anda Salah`
+                    })
+                }
+            }
+            else{
+                res.status(404).json({
+                    message:'Anda Belum Melakukan Login, Silahkan Login Terlebih Dahulu'
+                })
+            }
+
+        } catch (error) {
+            res.status(404).json(error.message);
+        }
+    }
+
     
 
 }

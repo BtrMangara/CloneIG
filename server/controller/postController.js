@@ -1,11 +1,13 @@
 
-const {Posts} = require('../models')
+const {Posts,Users} = require('../models')
 
 class postController{
 
     static async getAllPost(req,res){
         try {
-            const result = await Posts.findAll();
+            const result = await Posts.findAll({
+                include:[Users]
+            });
             res.status(200).json(result);
 
         } catch (error) {
