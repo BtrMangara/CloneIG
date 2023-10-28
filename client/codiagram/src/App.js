@@ -2,6 +2,8 @@ import './App.css';
 import {BrowserRouter,Route,Routes} from 'react-router-dom'
 import Sidebar from './components/sidebar';
 import Home from './components/home';
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.js';
 
 function App() {
   return (
