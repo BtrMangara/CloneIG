@@ -16,16 +16,16 @@ const Sidebar = () => {
                                 <h4 className='logo-font'>Codiagram</h4>
                                 <hr/>
                             </div>
-                            <div className='row align-items-center text-center' style={{minHeight:'75vh'}}>
+                            <div className='row align-items-center text-center' style={{minHeight:'60vh'}}>
                             <div className='col-12 sidebar'>
                                 <div className='d-flex mt-2 nav-item justify-content-center'>
-                                    <Link className='nav-link'>
+                                    <Link to={'/'} className='nav-link'>
                                         <p className='mt-2'><span><AiFillHome className='mb-1'/></span> Home</p>
                                     </Link>
                                 </div>
 
                                 <div className='d-flex mt-2 nav-item justify-content-center'>
-                                    <Link className='nav-link'>
+                                    <Link to={'/Profile'} className='nav-link'>
                                         <p className='mt-2 '><span><FaUserAlt className='mb-1'/></span> Profile</p>
                                     </Link>
                                 </div>

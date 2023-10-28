@@ -4,6 +4,7 @@ import Sidebar from './components/sidebar';
 import Home from './components/home';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js';
+import Profile from './components/profile';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Sidebar/>}>
             <Route index element={<Home/>}/>
+            <Route path='/Profile' element={<Profile/>}></Route>
           </Route>
         </Routes>
       </BrowserRouter>
