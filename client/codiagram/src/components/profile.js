@@ -6,6 +6,7 @@ import {BsBookmark,BsGrid3X3Gap} from 'react-icons/bs'
 import {FiLogOut} from 'react-icons/fi'
 
 const Profile = () => {
+  
     return (
         <div className='container-fluid mt-4 mb-4'>
             <div className='row justify-content-center'>

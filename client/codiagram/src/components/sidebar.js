@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js';
 import { Link, Outlet } from 'react-router-dom';
@@ -6,6 +6,7 @@ import {AiFillHome} from 'react-icons/ai';
 import {FaUserAlt} from 'react-icons/fa'
 
 const Sidebar = () => {
+    const [LoginStatus, setLoginStatus] = useState(false);
     return (
         <div>
             <div className='container-fluid min-vh-100'>
@@ -25,6 +26,7 @@ const Sidebar = () => {
                                 </div>
 
                                 <div className='d-flex mt-2 nav-item justify-content-center'>
+
                                     <Link to={'/Profile'} className='nav-link'>
                                         <p className='mt-2 '><span>
                                         <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" className="rounded-circle me-2" style={{width: "25px"}}alt="Avatar" /></span> Profile</p>

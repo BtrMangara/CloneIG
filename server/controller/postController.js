@@ -17,7 +17,7 @@ class postController {
 
   static async getPost(req, res) {
     try {
-      const result = await Posts.findAll({ where: { status: true } });
+      const result = await Posts.findAll({ where: { status: true}, include:[Users]});
       res.status(200).json(result);
     } catch (error) {
       res.status(404).json(error.message);
