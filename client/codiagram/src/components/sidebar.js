@@ -26,7 +26,8 @@ const Sidebar = () => {
 
                                 <div className='d-flex mt-2 nav-item justify-content-center'>
                                     <Link to={'/Profile'} className='nav-link'>
-                                        <p className='mt-2 '><span><FaUserAlt className='mb-1'/></span> Profile</p>
+                                        <p className='mt-2 '><span>
+                                        <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" className="rounded-circle me-2" style={{width: "25px"}}alt="Avatar" /></span> Profile</p>
                                     </Link>
                                 </div>
                             </div>
