@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Post from './post';
 import Draft from './draft';
 import {BsThreeDots} from'react-icons/bs';

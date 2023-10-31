@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const GET_POSTS = "GET_POSTS";
-export const GET_POSTS_USER_DRAFT = "GET_POSTS_USER_DRAFT";
+export const GET_POSTS_DRAFT = "GET_POSTS_DRAFT";
 
 export const getPosts = () =>{
     return (dispatch)=>{
@@ -42,6 +42,25 @@ export const getPosts = () =>{
                     errorMessage:error.message
                 }
             })
+        })
+    }
+}
+
+const getPostDraft = async() =>{
+    return (dispatch)=>{
+        dispatch({
+            type: GET_POSTS_DRAFT,
+            payload: {
+                loading :true,
+                data: false,
+                errorMessage:false
+            }
+        })
+
+        axios({
+            method :"GET",
+            url :"http://localhost:3006/post/",
+            timeout: 120000
         })
     }
 }
