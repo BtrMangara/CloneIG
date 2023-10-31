@@ -18,11 +18,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Sidebar/>}>
             <Route index element={<Home/>}/>
-            {!loginStatus ?
-            <Login/>
-            :
             <Route path='/Profile' element={<Profile/>}></Route>
-            }
           </Route>
         </Routes>
       </BrowserRouter>

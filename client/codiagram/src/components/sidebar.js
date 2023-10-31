@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js';
 import { Link, Outlet } from 'react-router-dom';
 import {AiFillHome} from 'react-icons/ai';
-import {FaUserAlt} from 'react-icons/fa'
+
 
 const Sidebar = () => {
     const [LoginStatus, setLoginStatus] = useState(false);
