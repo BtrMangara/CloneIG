@@ -7,7 +7,7 @@ class postController {
   static async getAllPost(req, res) {
     try {
       const result = await Posts.findAll({
-        include: [Users],
+        include: [Users]
       });
       res.status(200).json(result);
     } catch (error) {
@@ -17,7 +17,7 @@ class postController {
 
   static async getPost(req, res) {
     try {
-      const result = await Posts.findAll({ where: { status: true}, include:[Users]});
+      const result = await Posts.findAll({ where: { status: true},order:[['createdAt','DESC']], include:[Users]});
       res.status(200).json(result);
     } catch (error) {
       res.status(404).json(error.message);

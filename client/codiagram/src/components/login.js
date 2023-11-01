@@ -16,7 +16,7 @@ const Login = () => {
                         <div className='text-start'>
                         <form className='align-items-center'>
                             <div className="mb-3">                             
-                                <input type="email" className="form-control rounded-0" placeholder='Input Your Email Here' id="email" />
+                                <input type="text" className="form-control rounded-0" placeholder='Input Your Username Here' id="username" />
                                 </div>
                             <div className="mb-3">
                                 <input type="password" className="form-control rounded-0" placeholder='Input Your Password Here' id="password"/>

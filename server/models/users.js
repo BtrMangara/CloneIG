@@ -11,33 +11,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Users.hasMany(models.Posts)
     }
   }
   Users.init({
-    username: {
-      type: DataTypes.STRING,
-      validate:{
-        notEmpty:{
-          msg : 'Username harus diisi'
-        }
-      }
-    },
-    email: {
-      type:DataTypes.STRING,
-      validate:{
-        notEmpty:{msg:'Email Harus Diisi'},
-        isEmail:{msg:'Email tidak valid'}
-      }
-    },
+    username: DataTypes.STRING,
+    email: DataTypes.STRING,
+    fullname: DataTypes.STRING,
     password: DataTypes.STRING,
     image: DataTypes.STRING
   }, {
-    hooks:{
-      beforeCreate:function (user,options){
-        user.image = user.image || "https://via.placeholder.com/150x150";
-      }
-    },
     sequelize,
     modelName: 'Users',
   });
