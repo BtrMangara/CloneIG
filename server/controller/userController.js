@@ -36,14 +36,14 @@ class userController{
     
                 res.status(200).json({
                     message: 'Anda Berhasil Mendaftar',
-                    result
+                    data: result
                 });
     
             }
 
             
         } catch (error) {
-            res.status(404).json(error.message)
+            res.status(404).json({message:error.message })
         }
     }
 

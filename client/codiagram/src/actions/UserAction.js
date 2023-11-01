@@ -14,24 +14,27 @@ export const RegisterUser = (data)=>{
                 errorMessage : false
             }
         })
-
+        // console.log(data)
         await axios({
             method:'POST',
-            url : 'localhost:3006/users/register',
+            url : 'http://localhost:3006/users/register',
             data : data,
             timeout : 120000
         })
         .then((result)=>{
+            console.log(result)
             dispatch({
                 type: REGISTER_USER,
                 payload:{
                     loading:false,
-                    data: result.data,
+                    data: result.config.data.message,
                     errorMessage : false
-                }
+                } 
             })
+            // console.log(result)
         })
         .catch((error)=>{
+            // console.log(error)
             dispatch({
                 type: REGISTER_USER,
                 payload:{
