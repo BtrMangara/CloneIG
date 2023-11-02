@@ -2,7 +2,7 @@ const {Users} = require('../models');
 const bcrypt = require('bcrypt');
 const Jwt = require('jsonwebtoken');
 const { where } = require('sequelize');
-require('dotenv')
+require('dotenv/config')
 
 class userController{
 
@@ -35,8 +35,7 @@ class userController{
                 },{returning:true})
     
                 res.status(200).json({
-                    message: 'Anda Berhasil Mendaftar',
-                    data: result
+                    message: 'Anda Berhasil Mendaftar'
                 });
     
             }

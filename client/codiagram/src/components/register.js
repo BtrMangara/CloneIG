@@ -8,11 +8,7 @@ import Swal from 'sweetalert2'
 
 const Register = () => {
 
-    const {
-        handleSubmit,
-        formState: {errors}} = useForm();
-    
-    
+    const {handleSubmit} = useForm();
     const dispatch = useDispatch();
     const {registerUserResult, registerUserError} = useSelector((state)=> state.UserReducers)
     const [isRegister, setisRegister] = useState(false);
@@ -29,25 +25,27 @@ const Register = () => {
     const registerUser= (data)=>{
         data = User;
         // console.log(data)
-        setisRegister(true)
-        dispatch(RegisterUser(data))
-        
-
+        setisRegister(true);
+        dispatch(RegisterUser(data));
     }
 
     useEffect(() => {
-        isRegister ?
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Something went wrong!',
-          })
-        : 
-          Swal.fire({
-            icon: 'succes',
-            title: registerUserResult,
-            text: 'Silahkan Login!',
-        })
+        if(isRegister === true){
+            registerUserResult?
+            Swal.fire({
+                title: registerUserResult,
+                text: 'Silahkan Login!',
+                icon: 'success'
+            }).then(()=>{
+                navigate('/Login');
+            })
+            : 
+            Swal.fire({
+                title: registerUserError,
+                text: 'Silahkan Register Ulang!',
+                icon: 'error'
+            })
+        }
     }, [registerUserResult,registerUserError]);
 
     return (
