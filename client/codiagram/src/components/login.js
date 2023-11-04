@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { LoginUser } from '../actions/UserAction';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router';
+import Cookies from 'js-cookie';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -32,7 +33,7 @@ const Login = () => {
                     text:'Terimakasih!',
                     icon:'success'
                 }).then((result)=>{
-                    localStorage.setItem('Authorization', loginUserResult.data.token);
+                    Cookies.set('Authorization', loginUserResult.data.token);
                     navigate('/Profile')
                 })
             :  Swal.fire({
@@ -56,10 +57,10 @@ const Login = () => {
                         <div className='text-start'>
                         <form onSubmit={handleSubmit(LoginHandler)} className='align-items-center'>
                             <div className="mb-3">                             
-                                <input type="email" className="form-control rounded-0" placeholder='Input Your Email Here' id="username" onChange={(e)=>setDLogin({...DLogin,email:e.target.value})}/>
+                                <input type="email" className="form-control rounded-0" required placeholder='Input Your Email Here' id="username" onChange={(e)=>setDLogin({...DLogin,email:e.target.value})}/>
                                 </div>
                             <div className="mb-3">
-                                <input type="password" className="form-control rounded-0" placeholder='Input Your Password Here' id="password" onChange={(e)=>setDLogin({...DLogin,password:e.target.value})}/>
+                                <input type="password" className="form-control rounded-0" required placeholder='Input Your Password Here' id="password" onChange={(e)=>setDLogin({...DLogin,password:e.target.value})}/>
                             </div>
                            
                             <button type="submit" className="btn btn-primary w-100 opacity-75 text-light">Submit</button>

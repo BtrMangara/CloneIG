@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import Cookies from 'js-cookie'
+import React, { useEffect, useState } from 'react';
 import Post from './post';
 import Draft from './draft';
 import {BsThreeDots} from'react-icons/bs';
 import {BsBookmark,BsGrid3X3Gap} from 'react-icons/bs'
 import {FiLogOut} from 'react-icons/fi'
+
 
 const Profile = () => {
   

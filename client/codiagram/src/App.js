@@ -8,11 +8,12 @@ import Profile from './components/profile';
 import { useState } from 'react';
 import Login from './components/login';
 import Register from './components/register';
+import ProtectedRoutes from './helpers/ProtectedRoute';
 
 
 function App() {
 
-  const [loginStatus, setloginStatus] = useState(false);
+
   return (
       <div className='App'>
       <BrowserRouter>
@@ -20,7 +21,12 @@ function App() {
           <Route path='/' element={<Sidebar/>}>
             <Route index element={<Home/>}/>
 
-            <Route path='/Profile' element={<Profile/>}></Route>
+            <Route path='/Profile' element={
+              <ProtectedRoutes>
+              <Profile/>
+              </ProtectedRoutes>
+            }/>
+
           </Route>
           <Route path='/login' element={<Login/>}></Route>
           <Route path='/register' element={<Register/>}></Route>
