@@ -13,6 +13,6 @@ app.use(route);
 
 // console.log(port)
 
-app.listen(port,"0.0.0.0",()=>{
+app.listen(port,"0.0.0.0",function (){
     console.log(`App listening on port ${port}`);
 })
