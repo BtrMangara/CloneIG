@@ -5,7 +5,6 @@ import { getPosts } from '../actions/PostsAction';
 
 const Home = () => {
     
-
     const dispatch = useDispatch();
 
     const {getPostResult, getPostLoading, getPostError } = useSelector((state)=>state.PostsReducers);
