@@ -13,4 +13,5 @@ export default function ProtectedRoutes({children}) {
           })
         return (<Navigate to ='/login' replace={true}/>)
     }
+    return children
 }
