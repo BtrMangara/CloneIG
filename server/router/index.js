@@ -2,7 +2,7 @@ require('dotenv');
 const router = require('express').Router();
 router.get('/',(req,res)=>{
     res.json({
-        message:"Hello World!"
+        message:`Hello World ${process.env.DB_HOST}`
     });
 })
 
