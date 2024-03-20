@@ -8,7 +8,7 @@ router.get('/',(req,res)=>{
 
 router.get('/test',(req,res)=>{
     res.json({
-        message:`Hello ${PROCESS.ENV.DB_PASS}`
+        message:`Hello ${process.env.DB_PASS}`
     });
 })
 
