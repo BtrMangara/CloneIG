@@ -15,5 +15,4 @@ app.use(route);
 
 app.listen(port,"0.0.0.0",function (){
     console.log(`App listening on port ${port}`);
-    console.log(`${process.env.shared.DB_PASS}`)
 })
